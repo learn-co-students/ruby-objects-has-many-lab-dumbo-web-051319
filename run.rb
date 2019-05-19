@@ -6,5 +6,5 @@ moni = Song.new("Monitor")
 hed_cut = Song.new("Head Cut")
 hed_cut.artist = "Siouxsie and the Banshees"
 
-binding.pry
+# binding.pry
 puts "I ran"

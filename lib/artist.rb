@@ -1,6 +1,10 @@
+require "pry"
+
 class Artist
 
   attr_accessor :name
+
+  @@song_arr = []
 
   def initialize(name)
     return @name = name
@@ -15,13 +19,13 @@ class Artist
   end
 
   def add_song_by_name(song_name)
+    @@song_arr << song_name
     return Song.new(song_name)
   end
 
-  # def song_count
-  #   binding.pry
-  #   @@all
-  #   # Song.all.select {|song| song.artist == self}
-  # end
+  def self.song_count
+    # binding.pry
+    return @@song_arr.length
+  end
 
 end
