@@ -1,17 +1,30 @@
+require 'pry'
 
 class Artist
-  attr_accessor :name
+    attr_accessor :name
 
-  @@all_songs = []
+    def initialize(name)
+        @name = name
+    end
+    
+    def songs 
+     Song.all
+    end
+    
+    def add_song(song)
+        song.artist = self
+    end
+    
+    def add_song_by_name(song)
+      song = Song.new(song)
+      song.artist = self 
+    end 
 
-  def initialize(name)
-    @name = name
-    @@all_songs << self
-  end
+    def self.song_count
+      Song.all.count 
+    end 
+      
+# binding.pry
+end
 
-  def self.all
-    @@all_songs
-  end
-  
-
-end 
+ 
