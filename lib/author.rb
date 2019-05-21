@@ -14,21 +14,24 @@ class Author
     @@all
   end
 
-def posts #has many posts  
-  Post.all 
+def posts
+  Post.all
 end 
   
-def add_post
-
+def add_post(post)
+  post.author = self   
 end 
+
   
   def add_post_by_title(title)
-    Post.all.title 
+    title = Post.new(title)
+    title.author = self
   end 
   
+  
   def self.post_count
-    self.all.count 
-  end 
+      Post.all.count
+    end 
   
 end 
 
